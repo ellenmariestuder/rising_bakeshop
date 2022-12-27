@@ -1,21 +1,10 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import Product from './Product/Product';
 import useStyles from './styles';
 
-// const products = [
-//   { id: 1, 
-//     name: 'Christmas Cookie Kits', 
-//     description: 'descrip', 
-//     price: '$25',
-//     image:'' },
-//   { id: 2, 
-//     name: 'Ready-to-Bake Cinnamon Rolls', 
-//     description: 'descrip', 
-//     price: '$20',
-//     image: '' },
-// ]
 const Products = ({ products, onAddToCart }) => {
   const classes = useStyles();
 
@@ -28,8 +17,11 @@ const Products = ({ products, onAddToCart }) => {
             <Product product={product} onAddToCart={onAddToCart}/>
           </Grid>
         ))}
-
       </Grid>
+        <br />
+        <div style = {{ display: 'flex', justifyContent: 'right' }}>
+          <Button component={Link} to="/cart" variant='outlined'>Go To Cart</Button>
+        </div>
     </main>
   )
   

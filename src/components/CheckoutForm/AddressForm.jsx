@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { InputLabel, Select, MenuItem, Button, Grid, Typography, TextField, Paper } from '@material-ui/core';
-// import { useForm, FormProvider, useFormContext } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-// import useStyles from './Checkout/styles.js';
-
-import FormInput from './CustomTextField'
 import { commerce } from '../../lib/commerce';
 
 const AddressForm = ({ checkoutToken, next }) => {
-  // const methods = useForm();
   const { handleSubmit, reset, control } = useForm();
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState('');

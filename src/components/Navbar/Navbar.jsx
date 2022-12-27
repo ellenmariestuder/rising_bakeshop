@@ -7,7 +7,7 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/rising.png';
 import useStyles from './styles';
 
-const Navbar = ( { totalItems }) => {
+const Navbar = ({ totalItems }) => {
   const classes = useStyles();
   const location = useLocation();
 

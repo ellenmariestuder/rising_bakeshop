@@ -59,15 +59,14 @@ const App = () => {
     fetchCart();
   }, []);
 
-  // console.log(products);
-  console.log("app.js line 46; this is the cart", cart);
+  console.log("app.js, this is the cart: ", cart);
 
   return (
     <Router>
       <div>
         Rising Bake Shop
         <Navbar />
-        {/* <Navbar totalItems={cart.total_items}/> */}
+        <Navbar totalItems={cart.total_items}/>
         <Routes>
           <Route exact path="/" element={<Products
             products={products}
