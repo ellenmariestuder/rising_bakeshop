@@ -8,6 +8,8 @@ import Review from './Review';
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, onCaptureCheckout }) => {
+  // console.log('payment form checkout token: ', checkoutToken)
+  // console.log('payment form shipping data: ', shippingData)
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
     if (!stripe || !elements) return;
@@ -19,6 +21,7 @@ const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, onCaptur
     if ('[error]', error) {
       console.log(error);
     } else {
+      // console.log('payment form, shipping data: ', shippingData)
       const orderData = {
         list_items: checkoutToken.live.line_items,
         customer: {
@@ -28,7 +31,7 @@ const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, onCaptur
         },
         shipping: {
           name: 'primary',
-          street: shippingData.address1,
+          street: shippingData.address + ' ' + shippingData.apt,
           town_city: shippingData.city,
           county_state: shippingData.shippingSubdivision,
           postal_zip_code: shippingData.zip,
@@ -42,6 +45,7 @@ const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, onCaptur
           }
         }
       }
+      console.log('payment form, ORDER DATA: ', orderData)
       onCaptureCheckout(checkoutToken.id, orderData);
 
       nextStep();
