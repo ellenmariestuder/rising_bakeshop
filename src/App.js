@@ -6,9 +6,9 @@ import { Products, Navbar, Cart, Checkout } from './components';
 
 const App = () => {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState();
-  const [order, setOrder] = useState();
-  const [errorMessage, setErrorMessage] = useState();
+  const [cart, setCart] = useState({});
+  const [order, setOrder] = useState({});
+  const [errorMessage, setErrorMessage] = useState('');
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -66,7 +66,7 @@ const App = () => {
       <div>
         Rising Bake Shop
         <Navbar />
-        <Navbar totalItems={cart.total_items}/>
+        {/* <Navbar totalItems={cart.total_items}/> */}
         <Routes>
           <Route exact path="/" element={<Products
             products={products}
