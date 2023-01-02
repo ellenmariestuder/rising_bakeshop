@@ -37,7 +37,6 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
   // console.log('order data: ', order)
 
-  // const Confirmation = () => (
   const Confirmation = () => order.customer ? (
     <>
       <div>
