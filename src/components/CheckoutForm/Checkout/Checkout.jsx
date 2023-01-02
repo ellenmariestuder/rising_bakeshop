@@ -42,7 +42,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     <>
       <div>
         <Typography variant='h5'>Thanks for your order, {order.customer.firstname}!</Typography>
+        <br />
         <Divider className={classes.Divider}></Divider>
+        <br />
         <Typography variant='subtitle2'>Order ref: {order.customer_reference}</Typography>
       </div>
       <br />

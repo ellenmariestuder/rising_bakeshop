@@ -66,7 +66,7 @@ const App = () => {
       <div>
         Rising Bake Shop
         <Navbar />
-        {/* <Navbar totalItems={cart.total_items}/> */}
+        <Navbar totalItems={cart.total_items}/>
         <Routes>
           <Route exact path="/" element={<Products
             products={products}
