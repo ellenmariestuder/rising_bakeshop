@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button, CssBaseline } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { commerce } from '../../../lib/commerce';
 import useStyles from './styles';
@@ -15,6 +15,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
   const classes = useStyles();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const generateToken = async () => {
@@ -23,6 +24,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         setCheckoutToken(token);
       } catch (error) {
         console.log('checkout form, error: ', error)
+        // navigate('/') // if you're in checkout but there's an error go back to home page
       }
     }
     generateToken();
