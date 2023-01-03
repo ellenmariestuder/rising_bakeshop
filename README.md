@@ -71,3 +71,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## E-commerce learning tools
 This site was built with the help of this JavaScript Mastery video tutorial: https://www.youtube.com/watch?v=377AQ0y6LPA
+
+To view sales and orders, log into the Check.io dashboard: dashboard.chec.io
